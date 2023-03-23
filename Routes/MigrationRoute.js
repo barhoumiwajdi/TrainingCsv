@@ -5,6 +5,6 @@ const router = express.Router()
 
 
 
-router.get('/migration', getdata)
+router.get('/migration', passport.authenticate('bearer', { session: false }), getdata)
 
 module.exports = router
