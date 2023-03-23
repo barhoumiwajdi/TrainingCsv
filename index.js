@@ -28,6 +28,10 @@ app.get('/', async (req, res) => {
 });
 
 app.use('/api/v1', require('./Routes/MigrationRoute'))
+
+
+
+app.user('/api/v1', require('./Routes/Auth/AuthRoutes'))
 // End route section
 
 app.listen(process.env.port || port, function () {
