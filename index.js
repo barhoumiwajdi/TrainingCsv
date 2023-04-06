@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
+const passport = require('passport');
+
 // require midlleware
 require('./Midlleware/Passport/Bearer')
 // connect to database
@@ -31,7 +33,7 @@ app.use('/api/v1', require('./Routes/MigrationRoute'))
 
 
 
-app.user('/api/v1', require('./Routes/Auth/AuthRoutes'))
+app.use('/api/v1', require('./Routes/Auth/AuthRoutes'))
 // End route section
 
 app.listen(process.env.port || port, function () {
