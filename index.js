@@ -23,6 +23,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+// Use this if the 4th param is default value(false)
+//job.start()
 // Routes sections
 // Home Route
 app.get('/', async (req, res) => {

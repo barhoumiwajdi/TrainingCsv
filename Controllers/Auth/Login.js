@@ -2,8 +2,6 @@ const User = require('../../Models/Account')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-
-
 exports.Login = async (req, res) => {
     try {
         const found = await User.findOne({ Email: req.body.Email })

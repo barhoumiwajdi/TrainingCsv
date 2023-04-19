@@ -1,4 +1,4 @@
-const User = require('../../Models/Account')
+const Client = require('../../Models/Account')
 const bcrypt = require('bcryptjs')
 
 exports.Register = async (req, res) => {
