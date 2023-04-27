@@ -18,15 +18,6 @@
     "passport": "^0.6.0",
     "passport-http-bearer": "^1.0.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/barhoumiwajdi/TrainingCsv.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/barhoumiwajdi/TrainingCsv/issues"
-  },
-  "homepage": "https://github.com/barhoumiwajdi/TrainingCsv#readme",
-  "description": ""
+  "license": "ISC"
 }
