@@ -1,13 +1,12 @@
 
 const User = require('../../Models/Account')
 
-
 exports.getAllusers = async (req, res) => {
 
 
     try {
-        const data = await User.find()
-        res.send({ message: 'Users :  ', data })
+        const user = await User.find()
+        res.send({ message: 'Users :  ', user })
 
     } catch (error) {
         res.status(500).send({ message: 'erruer serveur ' || error })
@@ -15,6 +14,30 @@ exports.getAllusers = async (req, res) => {
 
 }
 
+
+
+exports.getuserbyid = async (req, res) => {
+
+    try {
+        const user = User.findById(req.params.id)
+        res.status(200).send({ message: 'user ', user })
+    } catch (error) {
+        res.status(500).send({ message: 'erruer serveur ' || error })
+
+    }
+
+}
+exports.updateuser = async (req, res) => {
+
+    try {
+        const user = User.findByIdAndUpdate(req.params.id, req.body)
+        res.status(200).send({ message: 'user has been updated ', user })
+    } catch (error) {
+        res.status(500).send({ message: 'erruer serveur ' || error })
+
+    }
+
+}
 exports.deleteUser = async (req, res) => {
     try {
 
@@ -25,4 +48,3 @@ exports.deleteUser = async (req, res) => {
         res.status(500).send({ message: 'erruer serveur ' || error })
     }
 }
-
