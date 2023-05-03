@@ -2,7 +2,6 @@ const Responsable = require("../../Models/Responsable")
 
 
 
-
 exports.getAllresponsable = async (req, res) => {
 
 

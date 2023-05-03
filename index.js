@@ -36,6 +36,10 @@ app.use('/api/v1', require('./Routes/MigrationRoute'))
 
 
 app.use('/api/v1', require('./Routes/Auth/AuthRoutes'))
+
+
+
+app.use('/api/v1', require('./Routes/Affectation/Affectation'))
 // End route section
 
 app.listen(process.env.port || port, function () {
