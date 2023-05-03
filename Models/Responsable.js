@@ -9,6 +9,9 @@ const ResponsableSchema = new Schema({
     Prenom: {
         type: String,
     },
+    EmailRespo: {
+        type: String
+    },
     num_passport: {
         type: String,
     },
