@@ -26,20 +26,22 @@ app.use(passport.session());
 // Use this if the 4th param is default value(false)
 //job.start()
 // Routes sections
+
+
+
 // Home Route
 app.get('/', async (req, res) => {
     res.json({ message: 'Welcome to my REST API.' });
 });
 
 app.use('/api/v1', require('./Routes/MigrationRoute'))
-
-
-
 app.use('/api/v1', require('./Routes/Auth/AuthRoutes'))
-
-
-
 app.use('/api/v1', require('./Routes/Affectation/Affectation'))
+app.use('/api/v1', require('./Routes/Locale/Local'))
+app.use('/api/v1', require('./Routes/Pays/pays'))
+app.use('/api/v1', require('./Routes/User/user'))
+app.use('/api/v1', require('./Routes/Responsable/Responsable'))
+
 // End route section
 
 app.listen(process.env.port || port, function () {
