@@ -1,6 +1,19 @@
 const Pays = require('../../Models/Pays')
 
 
+
+
+exports.addpays = async (req, res) => {
+    try {
+
+        await Pays.create(req.body)
+        res.status(200).send({ message: 'pays added succefully' })
+
+    } catch (error) {
+        res.status(500).send({ message: 'error server' })
+    }
+}
+
 exports.getAllpays = async (req, res) => {
 
 
@@ -19,7 +32,7 @@ exports.getAllpays = async (req, res) => {
 exports.getpaysbyid = async (req, res) => {
 
     try {
-        const pays = Pays.findById(req.params.id)
+        const pays = Pays.findById(req.params.id).populate('Locale')
         res.status(200).send({ message: 'Pays ', pays })
     } catch (error) {
         res.status(500).send({ message: 'erruer serveur ' || error })
@@ -41,7 +54,7 @@ exports.updatepays = async (req, res) => {
 exports.deletePays = async (req, res) => {
     try {
 
-        const deleted = await Pays.findOneAndDelete(req.params.idpays)
+        const deleted = await Pays.findOneAndDelete(req.params.id)
         res.status(200).send({ message: 'Pays has been deleted ', deleted })
 
     } catch (error) {

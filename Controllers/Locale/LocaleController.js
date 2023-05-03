@@ -2,6 +2,17 @@ const Locale = require("../../Models/Locale")
 
 
 
+exports.addlocal = async (req, res) => {
+    try {
+
+        await Locale.create(req.body)
+        res.status(200).send({ message: 'locale added succefully' })
+
+    } catch (error) {
+        res.status(500).send({ message: 'error server' })
+    }
+}
+
 exports.getAlllocale = async (req, res) => {
 
     try {
@@ -17,7 +28,7 @@ exports.getAlllocale = async (req, res) => {
 exports.getlocalebyid = async (req, res) => {
 
     try {
-        const locale = Locale.findById(req.params.id)
+        const locale = Locale.findById(req.params.id).populate('Responsable')
         res.status(200).send({ message: 'locale ', locale })
     } catch (error) {
         res.status(500).send({ message: 'erruer serveur ' || error })
@@ -39,7 +50,7 @@ exports.updatelocale = async (req, res) => {
 exports.deletelocale = async (req, res) => {
     try {
 
-        const deleted = await Locale.findOneAndDelete(req.params.idlocale)
+        const deleted = await Locale.findOneAndDelete(req.params.id)
         res.status(200).send({ message: 'locale has been deleted ', deleted })
 
     } catch (error) {
