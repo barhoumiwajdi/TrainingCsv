@@ -11,9 +11,7 @@ exports.addlocal = async (req, res) => {
             Nom: req.body.nom,
             Adresse: req.body.adresse,
             Pays: Pays._id
-
         }
-
         const newlocal = await Locale.create(data)
         await PaysModel.findByIdAndUpdate(Pays._id, { $push: { locales: newlocal._id } })
         res.status(200).send({ message: 'locale added succefully' })

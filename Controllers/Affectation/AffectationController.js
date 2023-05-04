@@ -1,7 +1,7 @@
 const LocaleModel = require("../../Models/Locale")
 const ResponsableModel = require('../../Models/Responsable')
 
-
+const nodemailer = require('nodemailer')
 
 
 exports.affecteRespo = async (req, res) => {
