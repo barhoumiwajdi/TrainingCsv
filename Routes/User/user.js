@@ -12,6 +12,4 @@ router.get('/user/:id', passport.authenticate('bearer', { session: false }), get
 router.put('/user/:id', passport.authenticate('bearer', { session: false }), updateuser)
 router.delete('/user/:id', passport.authenticate('bearer', { session: false }), deleteUser)
 
-
-
 module.exports = router

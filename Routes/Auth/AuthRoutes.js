@@ -16,3 +16,4 @@ router.get('/profile', passport.authenticate('bearer', { session: false }), (req
 
 
 module.exports = router;
+

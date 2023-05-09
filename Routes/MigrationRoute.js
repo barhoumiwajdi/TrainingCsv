@@ -1,7 +1,6 @@
 const express = require('express');
 const { getdata } = require('../Controllers/Migration');
-
-const passport = ('passport');
+const passport = require('passport');
 const router = express.Router()
 
 
