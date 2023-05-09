@@ -19,19 +19,21 @@ exports.getAllusers = async (req, res) => {
 exports.getuserbyid = async (req, res) => {
 
     try {
-        const user = User.findById(req.params.id)
-        res.status(200).send({ message: 'user ', user })
+        const user = await User.findById(req.params.id)
+        res.status(200).send({ message: 'user ', user: user })
+
     } catch (error) {
         res.status(500).send({ message: 'erruer serveur ' || error })
-
+        console.log(error)
     }
 
 }
 exports.updateuser = async (req, res) => {
 
     try {
-        const user = User.findByIdAndUpdate(req.params.id, req.body)
-        res.status(200).send({ message: 'user has been updated ', user })
+        const user = await User.findByIdAndUpdate(req.params.id, req.body)
+        const updateduser = await User.findById(req.params.id)
+        res.status(200).send({ message: 'user has been updated ', update: updateduser })
     } catch (error) {
         res.status(500).send({ message: 'erruer serveur ' || error })
 
@@ -41,7 +43,7 @@ exports.updateuser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
 
-        const deleted = await User.findOneAndDelete(req.params.iduser)
+        const deleted = await User.findByIdAndDelete(req.params.id)
         res.status(200).send({ message: 'user has been deleted ', deleted })
 
     } catch (error) {

@@ -12,8 +12,7 @@ const LocaleSchema = new Schema({
         type: String,
     },
     Pays: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Pays'
+        type: String,
     },
 
     Responsables: [{
@@ -24,7 +23,7 @@ const LocaleSchema = new Schema({
 
 
 
-});
+}, { timestamps: true, versionKey: false });
 
 const LocaleModel = mongoose.model('Locale', LocaleSchema);
 module.exports = LocaleModel;

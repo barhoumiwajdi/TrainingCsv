@@ -10,8 +10,8 @@ exports.Register = async (req, res) => {
         else {
             const salt = bcrypt.genSaltSync(10);
             req.body.Password = bcrypt.hashSync(req.body.Password, salt);
-            await User.create(req.body)
-            res.send({ message: "Ajouté avec succés" })
+            const resgistered = await User.create(req.body)
+            res.send({ message: "Ajouté avec succés", resgistered })
         }
     }
     catch (error) {

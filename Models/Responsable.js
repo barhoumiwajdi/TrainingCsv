@@ -30,7 +30,7 @@ const ResponsableSchema = new Schema({
 
 
 
-});
+}, { timestamps: true, versionKey: false });
 
 const ResponsableModel = mongoose.model('Responsable', ResponsableSchema);
 module.exports = ResponsableModel;

@@ -22,7 +22,7 @@ const PaysSchema = new Schema({
         type: Number,
     },
     taux_de_migration: {
-        type: String,
+        type: Number,
     },
     Locales: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -31,7 +31,8 @@ const PaysSchema = new Schema({
 
 
 
-});
+}, { timestamps: true, versionKey: false })
+
 
 const PaysModel = mongoose.model('Pays', PaysSchema);
 module.exports = PaysModel;
