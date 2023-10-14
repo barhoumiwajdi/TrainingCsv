@@ -5,14 +5,14 @@ const jwt = require('jsonwebtoken')
 exports.Login = async (req, res) => {
     try {
         const found = await User.findOne({ Email: req.body.Email })
-        console.log(found)
+
         if (found) {
-            const passwordcheck = await bcrypt.compareSync(req.body.Password, found.Password)
+            const passwordcheck = bcrypt.compareSync(req.body.Password, found.Password)
             if (passwordcheck) {
                 const data = {
                     idClient: found._id
                 }
-                const token = jwt.sign(data, 'Secret', { expiresIn: '1d' })
+                const token = jwt.sign(data, 'Secret', { expiresIn: '15d' })
 
                 res.send({ message: `Bienvenue ${found.Nom} , tu es connecté. `, token })
             }

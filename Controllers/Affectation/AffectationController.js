@@ -7,8 +7,6 @@ const nodemailer = require('nodemailer')
 exports.affecteRespo = async (req, res) => {
     try {
         const affectation = await LocaleModel.findByIdAndUpdate(req.params.idlocal, { $push: { Responsables: req.params.idRespo } })
-
-
         const local = await LocaleModel.findById(req.params.idlocal)
         const respo = await ResponsableModel.findById(req.params.idRespo)
         let transporter = nodemailer.createTransport({
@@ -20,7 +18,6 @@ exports.affecteRespo = async (req, res) => {
                 pass: "uggpeedoyivliars",
             },
         });
-
         await transporter.sendMail({
             from: "wajdi.barhoumi26@gmail.com",
             to: `${respo.EmailRespo}`,
@@ -51,7 +48,6 @@ exports.dessaffecteRespo = async (req, res) => {
                 pass: process.env.password,
             },
         });
-
         await transporter.sendMail({
             from: `${process.env.email}`,
             to: `${respo.Email}`,
@@ -66,3 +62,4 @@ exports.dessaffecteRespo = async (req, res) => {
     }
 
 }
+

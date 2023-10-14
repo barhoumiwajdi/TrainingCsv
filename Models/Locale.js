@@ -14,7 +14,6 @@ const LocaleSchema = new Schema({
     Pays: {
         type: String,
     },
-
     Responsables: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Responsable'
